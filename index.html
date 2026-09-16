@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Anuska Parajuli</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='7' fill='%230D0D0C'/%3E%3Cpath d='M9 23 15.5 8h1L23 23h-3l-1.4-3.6h-6.1L11 23Zm4.5-6h4.1l-2-5.2Z' fill='%23C4607A'/%3E%3C/svg%3E">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Syne:wght@400;500;600;700;800&family=JetBrains+Mono:wght@300;400;500&display=swap" rel="stylesheet">
 <style>
@@ -88,13 +89,154 @@ body{font-family:var(--display);background:var(--paper);color:var(--ink);overflo
 .edu-school{font-family:var(--serif);font-size:2.5rem;font-weight:300;line-height:1.1;margin-bottom:.5rem}
 .edu-degree{font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;color:rgba(247,245,240,.6);margin-bottom:1.25rem}
 .edu-courses{display:flex;flex-wrap:wrap;gap:6px}
-.edu-course{font-family:var(--mono);font-size:8px;padding:3px 9px;border:1px solid rgba(247,245,240,.15);color:rgba(247,245,240,.5)}
+.edu-course{font-family:var(--mono);font-size:9px;padding:4px 10px;border:1px solid rgba(247,245,240,.3);color:rgba(247,245,240,.82)}
 .hob{background:var(--paper);padding:2rem;transition:background .2s}
 .hob:hover{background:var(--paper2)}
 .hob-icon{font-size:1.3rem;margin-bottom:.75rem}
 .hob-name{font-family:var(--serif);font-size:1.15rem;font-weight:400;font-style:italic;margin-bottom:.3rem}
 .hob-note{font-family:var(--mono);font-size:9px;color:var(--muted);letter-spacing:.05em;line-height:1.5}
 .hob-link{display:inline-block;margin-top:6px;font-family:var(--mono);font-size:9px;color:var(--pink);text-decoration:none;border-bottom:1px solid rgba(196,96,122,.3)}
+.run-card{padding:0;min-width:0;height:260px;overflow:hidden;background:#221d27;position:relative}
+.run-card:hover{background:#221d27}
+.run-trigger{position:relative;width:100%;height:100%;display:block;border:0;background:transparent;color:var(--paper);cursor:pointer;overflow:hidden;font:inherit}
+.run-trigger::before{content:'';position:absolute;inset:-45%;background:radial-gradient(circle,rgba(196,96,122,.22),transparent 56%);transform:scale(.72);transition:transform .65s cubic-bezier(.2,.8,.2,1)}
+.run-title{position:absolute;z-index:5;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--serif);font-size:2rem;font-style:italic;font-weight:400;letter-spacing:-.02em;transition:top .55s cubic-bezier(.2,.8,.2,1),transform .55s cubic-bezier(.2,.8,.2,1);white-space:nowrap;text-shadow:0 2px 18px rgba(0,0,0,.75)}
+.run-title::after{content:'↗';display:inline-block;margin-left:.4rem;font-family:var(--mono);font-size:.7rem;color:var(--pink);transform:translateY(-.45rem);transition:transform .4s ease}
+.run-photo{position:absolute;z-index:2;left:50%;top:50%;width:68px;height:92px;margin:-46px 0 0 -34px;overflow:hidden;border:2px solid rgba(247,245,240,.85);box-shadow:0 10px 30px rgba(0,0,0,.45);transition:transform .62s cubic-bezier(.2,.85,.2,1),width .62s cubic-bezier(.2,.85,.2,1),height .62s cubic-bezier(.2,.85,.2,1),margin .62s cubic-bezier(.2,.85,.2,1),z-index 0s linear .3s}
+.run-photo img{width:100%;height:100%;display:block;object-fit:cover;animation:runBob 3.6s ease-in-out infinite}
+.run-photo:nth-of-type(1){transform:translate(-38px,-9px) rotate(-9deg)}
+.run-photo:nth-of-type(2){transform:translate(35px,-12px) rotate(8deg)}
+.run-photo:nth-of-type(3){transform:translate(0,19px) rotate(2deg)}
+.run-photo:nth-of-type(2) img{animation-delay:-1.1s}
+.run-photo:nth-of-type(3) img{animation-delay:-2.2s}
+@keyframes runBob{0%,100%{transform:translateY(0) scale(1.04)}50%{transform:translateY(-5px) scale(1.04)}}
+.run-card:hover .run-trigger::before,.run-card.is-open .run-trigger::before,.run-trigger:focus-visible::before{transform:scale(1)}
+.run-card:hover .run-title,.run-card.is-open .run-title,.run-trigger:focus-visible .run-title{top:88%;transform:translate(-50%,-50%)}
+.run-card:hover .run-title::after,.run-card.is-open .run-title::after,.run-trigger:focus-visible .run-title::after{transform:translate(.2rem,-.7rem) rotate(45deg)}
+.run-card:hover .run-photo,.run-card.is-open .run-photo,.run-trigger:focus-visible .run-photo{z-index:4;width:88px;height:132px;margin:-76px 0 0 -44px}
+.run-card:hover .run-photo:nth-of-type(1),.run-card.is-open .run-photo:nth-of-type(1),.run-trigger:focus-visible .run-photo:nth-of-type(1){transform:translate(-96px,-17px) rotate(-8deg)}
+.run-card:hover .run-photo:nth-of-type(2),.run-card.is-open .run-photo:nth-of-type(2),.run-trigger:focus-visible .run-photo:nth-of-type(2){transform:translate(0,-34px) rotate(1deg)}
+.run-card:hover .run-photo:nth-of-type(3),.run-card.is-open .run-photo:nth-of-type(3),.run-trigger:focus-visible .run-photo:nth-of-type(3){transform:translate(96px,-14px) rotate(8deg)}
+.run-trigger:focus-visible{outline:2px solid var(--pink);outline-offset:-4px}
+.hike-card{padding:0;min-width:0;height:260px;overflow:hidden;background:#221d27;position:relative}
+.hike-card:hover{background:#221d27}
+.hike-trigger{position:relative;width:100%;height:100%;display:block;border:0;background:transparent;color:var(--paper);cursor:pointer;overflow:hidden;font:inherit}
+.hike-trigger::before{content:'';position:absolute;inset:-35%;background:radial-gradient(circle,rgba(122,171,240,.22),transparent 58%);transform:scale(.7);transition:transform .65s cubic-bezier(.2,.8,.2,1)}
+.hike-title{position:absolute;z-index:10;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--serif);font-size:1.75rem;font-style:italic;font-weight:400;letter-spacing:-.02em;white-space:nowrap;text-shadow:0 2px 18px rgba(0,0,0,.8);transition:top .55s cubic-bezier(.2,.8,.2,1),transform .55s cubic-bezier(.2,.8,.2,1)}
+.hike-title::after{content:'↗';display:inline-block;margin-left:.4rem;font-family:var(--mono);font-size:.7rem;color:var(--blue-light);transform:translateY(-.45rem);transition:transform .4s ease}
+.hike-photo{position:absolute;z-index:2;left:50%;top:48%;width:54px;height:72px;margin:-36px 0 0 -27px;overflow:hidden;border:2px solid rgba(247,245,240,.82);box-shadow:0 9px 26px rgba(0,0,0,.48);transition:transform .65s cubic-bezier(.2,.85,.2,1),width .65s cubic-bezier(.2,.85,.2,1),height .65s cubic-bezier(.2,.85,.2,1),margin .65s cubic-bezier(.2,.85,.2,1),z-index 0s linear .3s}
+.hike-photo img{width:100%;height:100%;display:block;object-fit:cover;animation:hikeBob 4s ease-in-out infinite}
+.hike-photo:nth-of-type(1){transform:translate(-48px,-15px) rotate(-13deg)}
+.hike-photo:nth-of-type(2){transform:translate(3px,-28px) rotate(-3deg)}
+.hike-photo:nth-of-type(3){transform:translate(46px,-10px) rotate(11deg)}
+.hike-photo:nth-of-type(4){transform:translate(-36px,24px) rotate(8deg)}
+.hike-photo:nth-of-type(5){transform:translate(10px,27px) rotate(-7deg)}
+.hike-photo:nth-of-type(6){transform:translate(52px,20px) rotate(4deg)}
+.hike-photo:nth-of-type(2) img{animation-delay:-.7s}.hike-photo:nth-of-type(3) img{animation-delay:-1.4s}.hike-photo:nth-of-type(4) img{animation-delay:-2.1s}.hike-photo:nth-of-type(5) img{animation-delay:-2.8s}.hike-photo:nth-of-type(6) img{animation-delay:-3.5s}
+@keyframes hikeBob{0%,100%{transform:translateY(0) scale(1.04)}50%{transform:translateY(-4px) scale(1.04)}}
+.hike-card:hover .hike-trigger::before,.hike-card.is-open .hike-trigger::before,.hike-trigger:focus-visible::before{transform:scale(1)}
+.hike-card:hover .hike-title,.hike-card.is-open .hike-title,.hike-trigger:focus-visible .hike-title{top:90%;transform:translate(-50%,-50%)}
+.hike-card:hover .hike-title::after,.hike-card.is-open .hike-title::after,.hike-trigger:focus-visible .hike-title::after{transform:translate(.2rem,-.7rem) rotate(45deg)}
+.hike-card:hover .hike-photo,.hike-card.is-open .hike-photo,.hike-trigger:focus-visible .hike-photo{z-index:4;width:68px;height:92px;margin:-46px 0 0 -34px}
+.hike-card:hover .hike-photo:nth-of-type(1),.hike-card.is-open .hike-photo:nth-of-type(1),.hike-trigger:focus-visible .hike-photo:nth-of-type(1){transform:translate(-94px,-51px) rotate(-7deg)}
+.hike-card:hover .hike-photo:nth-of-type(2),.hike-card.is-open .hike-photo:nth-of-type(2),.hike-trigger:focus-visible .hike-photo:nth-of-type(2){transform:translate(0,-59px) rotate(1deg)}
+.hike-card:hover .hike-photo:nth-of-type(3),.hike-card.is-open .hike-photo:nth-of-type(3),.hike-trigger:focus-visible .hike-photo:nth-of-type(3){transform:translate(94px,-49px) rotate(7deg)}
+.hike-card:hover .hike-photo:nth-of-type(4),.hike-card.is-open .hike-photo:nth-of-type(4),.hike-trigger:focus-visible .hike-photo:nth-of-type(4){transform:translate(-94px,48px) rotate(6deg)}
+.hike-card:hover .hike-photo:nth-of-type(5),.hike-card.is-open .hike-photo:nth-of-type(5),.hike-trigger:focus-visible .hike-photo:nth-of-type(5){transform:translate(0,40px) rotate(-1deg)}
+.hike-card:hover .hike-photo:nth-of-type(6),.hike-card.is-open .hike-photo:nth-of-type(6),.hike-trigger:focus-visible .hike-photo:nth-of-type(6){transform:translate(94px,48px) rotate(-6deg)}
+.hike-trigger:focus-visible{outline:2px solid var(--blue-light);outline-offset:-4px}
+.box-card{padding:0;min-width:0;height:260px;overflow:hidden;background:#221d27;position:relative}
+.box-card:hover{background:#221d27}
+.box-trigger{position:relative;width:100%;height:100%;display:block;border:0;background:transparent;color:var(--paper);cursor:pointer;overflow:hidden;font:inherit}
+.box-trigger::before{content:'';position:absolute;inset:-40%;background:radial-gradient(circle,rgba(196,96,122,.28),transparent 57%);transform:scale(.72);transition:transform .65s cubic-bezier(.2,.8,.2,1)}
+.box-title{position:absolute;z-index:5;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--serif);font-size:1.65rem;font-style:italic;font-weight:400;letter-spacing:-.02em;white-space:nowrap;text-shadow:0 2px 18px rgba(0,0,0,.8);transition:top .55s cubic-bezier(.2,.8,.2,1),transform .55s cubic-bezier(.2,.8,.2,1)}
+.box-title::after{content:'↗';display:inline-block;margin-left:.4rem;font-family:var(--mono);font-size:.7rem;color:var(--pink);transform:translateY(-.45rem);transition:transform .4s ease}
+.box-photo{position:absolute;z-index:2;left:50%;top:50%;width:88px;height:60px;margin:-30px 0 0 -44px;overflow:hidden;border:2px solid rgba(247,245,240,.84);box-shadow:0 10px 30px rgba(0,0,0,.5);transition:transform .62s cubic-bezier(.2,.85,.2,1),width .62s cubic-bezier(.2,.85,.2,1),height .62s cubic-bezier(.2,.85,.2,1),margin .62s cubic-bezier(.2,.85,.2,1),z-index 0s linear .3s}
+.box-photo img{width:100%;height:100%;display:block;object-fit:cover;animation:boxBob 3.8s ease-in-out infinite}
+.box-photo:nth-of-type(1){transform:translate(-38px,-6px) rotate(-9deg)}
+.box-photo:nth-of-type(2){transform:translate(38px,-8px) rotate(8deg)}
+.box-photo:nth-of-type(2) img{animation-delay:-1.2s}
+@keyframes boxBob{0%,100%{transform:translateY(0) scale(1.04)}50%{transform:translateY(-5px) scale(1.04)}}
+.box-card:hover .box-trigger::before,.box-card.is-open .box-trigger::before,.box-trigger:focus-visible::before{transform:scale(1)}
+.box-card:hover .box-title,.box-card.is-open .box-title,.box-trigger:focus-visible .box-title{top:89%;transform:translate(-50%,-50%)}
+.box-card:hover .box-title::after,.box-card.is-open .box-title::after,.box-trigger:focus-visible .box-title::after{transform:translate(.2rem,-.7rem) rotate(45deg)}
+.box-card:hover .box-photo,.box-card.is-open .box-photo,.box-trigger:focus-visible .box-photo{z-index:4;width:112px;height:76px;margin:-48px 0 0 -56px}
+.box-card:hover .box-photo:nth-of-type(1),.box-card.is-open .box-photo:nth-of-type(1),.box-trigger:focus-visible .box-photo:nth-of-type(1){transform:translate(-62px,-24px) rotate(-7deg)}
+.box-card:hover .box-photo:nth-of-type(2),.box-card.is-open .box-photo:nth-of-type(2),.box-trigger:focus-visible .box-photo:nth-of-type(2){transform:translate(62px,-24px) rotate(7deg)}
+.box-trigger:focus-visible{outline:2px solid var(--pink);outline-offset:-4px}
+.music-card{padding:0;height:260px;overflow:hidden;background:#221d27;position:relative}
+.music-card:hover{background:#221d27}
+.music-link{position:relative;width:100%;height:100%;display:flex;flex-direction:column;align-items:center;justify-content:center;color:var(--paper);text-decoration:none;overflow:hidden}
+.music-covers{position:relative;width:225px;height:142px;margin-top:-10px}
+.music-cover{position:absolute;left:50%;top:50%;width:92px;height:92px;object-fit:cover;border:2px solid rgba(255,255,255,.84);box-shadow:0 12px 28px rgba(0,0,0,.45);transition:transform .55s cubic-bezier(.2,.8,.2,1)}
+.music-cover:nth-child(1){transform:translate(-108%,-48%) rotate(-10deg)}
+.music-cover:nth-child(2){z-index:2;transform:translate(-50%,-58%) rotate(1deg)}
+.music-cover:nth-child(3){transform:translate(8%,-46%) rotate(10deg)}
+@keyframes musicCoverFloat{0%,100%{margin-top:0}50%{margin-top:-6px}}
+.music-cover:nth-child(1){animation:musicCoverFloat 3.4s ease-in-out infinite}.music-cover:nth-child(2){animation:musicCoverFloat 3.4s ease-in-out -.9s infinite}.music-cover:nth-child(3){animation:musicCoverFloat 3.4s ease-in-out -1.8s infinite}
+.music-link:hover .music-cover:nth-child(1),.music-link:focus-visible .music-cover:nth-child(1){transform:translate(-122%,-50%) rotate(-13deg)}
+.music-link:hover .music-cover:nth-child(2),.music-link:focus-visible .music-cover:nth-child(2){transform:translate(-50%,-66%) scale(1.08)}
+.music-link:hover .music-cover:nth-child(3),.music-link:focus-visible .music-cover:nth-child(3){transform:translate(22%,-50%) rotate(13deg)}
+.music-title{position:relative;z-index:3;margin-top:-12px;font-family:var(--serif);font-size:1.65rem;font-style:italic;text-shadow:0 2px 16px rgba(0,0,0,.7)}
+.music-note{position:relative;z-index:3;display:inline-flex;align-items:center;gap:5px;margin-top:.35rem;font-family:var(--mono);font-size:9px;letter-spacing:.07em;color:rgba(247,245,240,.7)}
+.spotify-mini{width:14px;height:14px;color:#1DB954;transition:transform .3s ease}
+.music-link:hover .spotify-mini,.music-link:focus-visible .spotify-mini{transform:scale(1.22) rotate(7deg)}
+.music-link:hover .music-note,.music-link:focus-visible .music-note{color:#fff}
+.music-link:focus-visible{outline:2px solid #1DB954;outline-offset:-4px}
+.paint-card{padding:0;min-width:0;height:260px;overflow:hidden;background:#221d27;position:relative}
+.paint-card:hover{background:#221d27}
+.paint-trigger{position:relative;width:100%;height:100%;display:block;border:0;background:transparent;color:var(--paper);cursor:pointer;overflow:hidden;font:inherit}
+.paint-trigger::before{content:'';position:absolute;inset:-38%;background:radial-gradient(circle,rgba(222,165,104,.25),transparent 58%);transform:scale(.7);transition:transform .65s cubic-bezier(.2,.8,.2,1)}
+.paint-title{position:absolute;z-index:8;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--serif);font-size:1.8rem;font-style:italic;font-weight:400;white-space:nowrap;text-shadow:0 2px 18px rgba(0,0,0,.8);transition:top .55s cubic-bezier(.2,.8,.2,1),transform .55s cubic-bezier(.2,.8,.2,1)}
+.paint-title::after{content:'↗';display:inline-block;margin-left:.4rem;font-family:var(--mono);font-size:.7rem;color:#dda568;transform:translateY(-.45rem);transition:transform .4s ease}
+.paint-photo{position:absolute;z-index:2;left:50%;top:48%;width:62px;height:78px;margin:-39px 0 0 -31px;overflow:hidden;border:3px solid #efe8dc;box-shadow:0 10px 28px rgba(0,0,0,.48);transition:transform .65s cubic-bezier(.2,.85,.2,1),width .65s cubic-bezier(.2,.85,.2,1),height .65s cubic-bezier(.2,.85,.2,1),margin .65s cubic-bezier(.2,.85,.2,1),z-index 0s linear .3s}
+.paint-photo img{width:100%;height:100%;display:block;object-fit:cover;animation:paintBob 4.1s ease-in-out infinite}
+.paint-photo:nth-of-type(1){transform:translate(-48px,-18px) rotate(-12deg)}
+.paint-photo:nth-of-type(2){transform:translate(38px,-20px) rotate(10deg)}
+.paint-photo:nth-of-type(3){transform:translate(-31px,27px) rotate(7deg)}
+.paint-photo:nth-of-type(4){transform:translate(34px,25px) rotate(-8deg)}
+.paint-photo:nth-of-type(2) img{animation-delay:-1s}.paint-photo:nth-of-type(3) img{animation-delay:-2s}.paint-photo:nth-of-type(4) img{animation-delay:-3s}
+@keyframes paintBob{0%,100%{transform:translateY(0) scale(1.04)}50%{transform:translateY(-5px) scale(1.04)}}
+.paint-card:hover .paint-trigger::before,.paint-card.is-open .paint-trigger::before,.paint-trigger:focus-visible::before{transform:scale(1)}
+.paint-card:hover .paint-title,.paint-card.is-open .paint-title,.paint-trigger:focus-visible .paint-title{top:89%;transform:translate(-50%,-50%)}
+.paint-card:hover .paint-title::after,.paint-card.is-open .paint-title::after,.paint-trigger:focus-visible .paint-title::after{transform:translate(.2rem,-.7rem) rotate(45deg)}
+.paint-card:hover .paint-photo,.paint-card.is-open .paint-photo,.paint-trigger:focus-visible .paint-photo{z-index:4;width:104px;height:83px;margin:-42px 0 0 -52px}
+.paint-card:hover .paint-photo:nth-of-type(1),.paint-card.is-open .paint-photo:nth-of-type(1),.paint-trigger:focus-visible .paint-photo:nth-of-type(1){transform:translate(-61px,-51px) rotate(-4deg)}
+.paint-card:hover .paint-photo:nth-of-type(2),.paint-card.is-open .paint-photo:nth-of-type(2),.paint-trigger:focus-visible .paint-photo:nth-of-type(2){transform:translate(61px,-51px) rotate(4deg)}
+.paint-card:hover .paint-photo:nth-of-type(3),.paint-card.is-open .paint-photo:nth-of-type(3),.paint-trigger:focus-visible .paint-photo:nth-of-type(3){transform:translate(-61px,42px) rotate(4deg)}
+.paint-card:hover .paint-photo:nth-of-type(4),.paint-card.is-open .paint-photo:nth-of-type(4),.paint-trigger:focus-visible .paint-photo:nth-of-type(4){transform:translate(61px,42px) rotate(-4deg)}
+.paint-trigger:focus-visible{outline:2px solid #dda568;outline-offset:-4px}
+.bake-card{padding:0;min-width:0;height:260px;overflow:hidden;background:#221d27;position:relative}
+.bake-card:hover{background:#221d27}
+.bake-trigger{position:relative;width:100%;height:100%;display:block;border:0;background:transparent;color:var(--paper);cursor:pointer;overflow:hidden;font:inherit}
+.bake-trigger::before{content:'';position:absolute;inset:-36%;background:radial-gradient(circle,rgba(238,175,96,.3),transparent 58%);transform:scale(.7);transition:transform .65s cubic-bezier(.2,.8,.2,1)}
+.bake-title{position:absolute;z-index:9;left:50%;top:50%;transform:translate(-50%,-50%);font-family:var(--serif);font-size:1.8rem;font-style:italic;font-weight:400;white-space:nowrap;text-shadow:0 2px 18px rgba(0,0,0,.8);transition:top .55s cubic-bezier(.2,.8,.2,1),transform .55s cubic-bezier(.2,.8,.2,1)}
+.bake-title::after{content:'↗';display:inline-block;margin-left:.4rem;font-family:var(--mono);font-size:.7rem;color:#eeaf60;transform:translateY(-.45rem);transition:transform .4s ease}
+.bake-photo{position:absolute;z-index:2;left:50%;top:48%;width:52px;height:70px;margin:-35px 0 0 -26px;overflow:hidden;border:2px solid rgba(255,244,225,.86);box-shadow:0 9px 26px rgba(0,0,0,.5);transition:transform .65s cubic-bezier(.2,.85,.2,1),width .65s cubic-bezier(.2,.85,.2,1),height .65s cubic-bezier(.2,.85,.2,1),margin .65s cubic-bezier(.2,.85,.2,1),z-index 0s linear .3s}
+.bake-photo img{width:100%;height:100%;display:block;object-fit:cover;animation:bakeBob 3.9s ease-in-out infinite}
+.bake-photo:nth-of-type(1){transform:translate(-47px,-16px) rotate(-12deg)}.bake-photo:nth-of-type(2){transform:translate(3px,-28px) rotate(-2deg)}.bake-photo:nth-of-type(3){transform:translate(47px,-12px) rotate(11deg)}.bake-photo:nth-of-type(4){transform:translate(-40px,27px) rotate(7deg)}.bake-photo:nth-of-type(5){transform:translate(8px,29px) rotate(-8deg)}.bake-photo:nth-of-type(6){transform:translate(50px,24px) rotate(5deg)}
+.bake-photo:nth-of-type(2) img{animation-delay:-.65s}.bake-photo:nth-of-type(3) img{animation-delay:-1.3s}.bake-photo:nth-of-type(4) img{animation-delay:-1.95s}.bake-photo:nth-of-type(5) img{animation-delay:-2.6s}.bake-photo:nth-of-type(6) img{animation-delay:-3.25s}
+@keyframes bakeBob{0%,100%{transform:translateY(0) scale(1.04)}50%{transform:translateY(-4px) scale(1.04)}}
+.bake-card:hover .bake-trigger::before,.bake-card.is-open .bake-trigger::before,.bake-trigger:focus-visible::before{transform:scale(1)}
+.bake-card:hover .bake-title,.bake-card.is-open .bake-title,.bake-trigger:focus-visible .bake-title{top:90%;transform:translate(-50%,-50%)}
+.bake-card:hover .bake-title::after,.bake-card.is-open .bake-title::after,.bake-trigger:focus-visible .bake-title::after{transform:translate(.2rem,-.7rem) rotate(45deg)}
+.bake-card:hover .bake-photo,.bake-card.is-open .bake-photo,.bake-trigger:focus-visible .bake-photo{z-index:4;width:68px;height:92px;margin:-46px 0 0 -34px}
+.bake-card:hover .bake-photo:nth-of-type(1),.bake-card.is-open .bake-photo:nth-of-type(1),.bake-trigger:focus-visible .bake-photo:nth-of-type(1){transform:translate(-94px,-51px) rotate(-7deg)}.bake-card:hover .bake-photo:nth-of-type(2),.bake-card.is-open .bake-photo:nth-of-type(2),.bake-trigger:focus-visible .bake-photo:nth-of-type(2){transform:translate(0,-59px) rotate(1deg)}.bake-card:hover .bake-photo:nth-of-type(3),.bake-card.is-open .bake-photo:nth-of-type(3),.bake-trigger:focus-visible .bake-photo:nth-of-type(3){transform:translate(94px,-49px) rotate(7deg)}.bake-card:hover .bake-photo:nth-of-type(4),.bake-card.is-open .bake-photo:nth-of-type(4),.bake-trigger:focus-visible .bake-photo:nth-of-type(4){transform:translate(-94px,48px) rotate(6deg)}.bake-card:hover .bake-photo:nth-of-type(5),.bake-card.is-open .bake-photo:nth-of-type(5),.bake-trigger:focus-visible .bake-photo:nth-of-type(5){transform:translate(0,40px) rotate(-1deg)}.bake-card:hover .bake-photo:nth-of-type(6),.bake-card.is-open .bake-photo:nth-of-type(6),.bake-trigger:focus-visible .bake-photo:nth-of-type(6){transform:translate(94px,48px) rotate(-6deg)}
+.bake-trigger:focus-visible{outline:2px solid #eeaf60;outline-offset:-4px}
+.reads-section{margin-top:5rem;overflow:hidden}
+.reads-heading{display:flex;align-items:baseline;justify-content:space-between;gap:1rem;margin-bottom:1.5rem}
+.reads-heading h3{font-family:var(--serif);font-size:2rem;font-weight:400;font-style:italic}
+.reads-heading span{font-family:var(--mono);font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--muted)}
+.reads-window{overflow:hidden;padding:1.2rem 0 1.8rem;border-top:1px solid var(--rule);border-bottom:1px solid var(--rule);mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent);-webkit-mask-image:linear-gradient(to right,transparent,#000 5%,#000 95%,transparent)}
+.reads-track{display:flex;width:max-content;gap:1.25rem;animation:readsDrift 38s linear infinite}
+.reads-window:hover .reads-track{animation-play-state:paused}
+@keyframes readsDrift{from{transform:translateX(0)}to{transform:translateX(calc(-50% - .625rem))}}
+.read-book{width:132px;flex:0 0 132px;transition:transform .35s cubic-bezier(.2,.8,.2,1);transform-origin:center bottom}
+.read-book:nth-child(3n+1){transform:rotate(-1.5deg)}.read-book:nth-child(3n+2){transform:rotate(1deg)}
+.read-book:hover{transform:translateY(-12px) rotate(0) scale(1.05);z-index:3}
+.read-cover{display:block;width:116px;height:174px;margin:0 auto 10px;object-fit:cover;background:var(--paper2);border:1px solid var(--rule);box-shadow:0 8px 18px rgba(13,13,12,.15)}
+.read-title{font-family:var(--serif);font-size:.92rem;font-weight:500;line-height:1.15;text-align:center}
+.read-author{margin-top:4px;font-family:var(--mono);font-size:7px;letter-spacing:.06em;text-transform:uppercase;color:var(--muted);text-align:center}
 .place{display:flex;align-items:center;gap:1rem;padding:.75rem 0;border-bottom:1px solid var(--rule);font-family:var(--serif);font-size:1.1rem;font-weight:300;color:var(--ink)}
 .place-num{font-family:var(--mono);font-size:9px;color:var(--muted);margin-left:auto}
 .book-list{display:flex;flex-direction:column;gap:1.25rem}
@@ -249,6 +391,13 @@ body{font-family:var(--display);background:var(--paper);color:var(--ink);overflo
 
   /* ── Hobbies ── */
   .hob{padding:1.5rem 1rem}
+  .run-card{padding:0}
+  .run-card{padding:0;height:240px}
+  .hike-card{padding:0;height:240px}
+  .box-card,.music-card,.paint-card,.bake-card{padding:0;height:240px}
+  .run-card:hover .run-photo,.run-card.is-open .run-photo,.run-trigger:focus-visible .run-photo{width:78px;height:118px;margin:-67px 0 0 -39px}
+  .run-card:hover .run-photo:nth-of-type(1),.run-card.is-open .run-photo:nth-of-type(1),.run-trigger:focus-visible .run-photo:nth-of-type(1){transform:translate(-82px,-15px) rotate(-8deg)}
+  .run-card:hover .run-photo:nth-of-type(3),.run-card.is-open .run-photo:nth-of-type(3),.run-trigger:focus-visible .run-photo:nth-of-type(3){transform:translate(82px,-12px) rotate(8deg)}
 }
 
 </style>
@@ -341,10 +490,8 @@ body{font-family:var(--display);background:var(--paper);color:var(--ink);overflo
 
 
 
-  <!-- ABOUT ME -->
   <div class="about-section" style="padding:5rem;background:var(--paper)">
     <div style="max-width:980px;margin:0 auto">
-      <div style="font-family:var(--mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1rem">About me</div>
       <h2 style="font-family:var(--serif);font-size:clamp(2.8rem,5vw,5rem);font-weight:300;line-height:1.02;letter-spacing:-.025em;margin-bottom:2rem">About <em style="font-style:italic;color:var(--pink)">me</em></h2>
       <div style="font-family:var(--serif);font-size:1.15rem;font-weight:300;line-height:1.8;color:var(--muted)">
         I'm a first-generation Nepali-American who grew up with a global perspective that shapes how I think about who technology reaches. I believe security systems and AI infrastructure carry ethical weight that should be designed in from the start. Having grown up seeing what systemic gaps look like up close, I take seriously the question of who benefits from what we build and who doesn’t. That conviction shapes what I build and why. I’m drawn to engineering that requires both technical rigor and thoughtful decision-making. The systems we build affect people in ways that aren’t always obvious. Beyond solving technical problems, I care about understanding the broader consequences of the systems we design and deploy.
@@ -782,132 +929,101 @@ body{font-family:var(--display);background:var(--paper);color:var(--ink);overflo
 <!-- ====== LIFE ====== -->
 <div class="tab-panel" id="panel-life">
   <div class="psec">
-    <div class="sec-hdr"><h2 class="sec-title">Human Things I Do <em>Outside of Work</em></h2></div>
+    <div class="sec-hdr"><h2 class="sec-title">Outside of <em>Work</em></h2></div>
 
     <!-- FEATURED HOBBIES -->
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule);margin-bottom:2rem">
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:1px;background:var(--rule)">
 
-      <div class="hob">
-        <div class="hob-name">&#127939; Running</div>
-        <div class="hob-note">Logging miles and dillydallying across the Bay.</div>
+      <div class="hob bake-card" id="baking-card">
+        <button class="bake-trigger" type="button" aria-expanded="false" aria-label="Show baking photos">
+          <span class="bake-photo"><img src="assets/baking-1.png" alt="Orange cake with candied citrus" loading="lazy"></span>
+          <span class="bake-photo"><img src="assets/baking-2.jpg" alt="Chocolate chunk cookies with flaky salt" loading="lazy"></span>
+          <span class="bake-photo"><img src="assets/baking-3.jpg" alt="Chocolate cake in a bakery box" loading="lazy"></span>
+          <span class="bake-photo"><img src="assets/baking-4.jpg" alt="Berry-topped mini cakes" loading="lazy"></span>
+          <span class="bake-photo"><img src="assets/baking-5.jpg" alt="Pink rosette cupcakes" loading="lazy"></span>
+          <span class="bake-photo"><img src="assets/baking-6.jpg" alt="Freshly frosted cinnamon rolls" loading="lazy"></span>
+          <span class="bake-title">Baking</span>
+        </button>
       </div>
 
-      <div class="hob">
-        <div class="hob-name">&#127947; Weightlifting &amp; Boxing</div>
+      <div class="hob run-card" id="running-card">
+        <button class="run-trigger" type="button" aria-expanded="false" aria-label="Show running photos">
+          <span class="run-photo"><img src="assets/run-club-huddle.png" alt="Strava morning run with a run-club huddle" loading="lazy"></span>
+          <span class="run-photo"><img src="assets/run-club-route.png" alt="Strava evening run along a palm-lined route" loading="lazy"></span>
+          <span class="run-photo"><img src="assets/run-club-friends.png" alt="Three friends together after a workout" loading="lazy"></span>
+          <span class="run-title">Running</span>
+        </button>
       </div>
 
-      <div class="hob">
-        <div class="hob-name">&#9968; Hiking &amp; Trekking</div>
-        <div class="hob-note">
-  Peak Experience: <b>Ama Yangri Base Camp</b> (Dec 2025)🏔🇳🇵.
-  <i>(can't forget to give an honorary mention my home sweet home, the &hearts; BAY AREA &hearts; and all its marvelous trails.)</i>
-</div>
+      <div class="hob music-card">
+        <a class="music-link" href="https://open.spotify.com/user/31qtffmjlxs3hxslilqnqx356cea" target="_blank" rel="noopener noreferrer" aria-label="Open my Spotify profile — my taste is eclectic">
+          <span class="music-covers" aria-hidden="true">
+            <img class="music-cover" src="https://f4.bcbits.com/img/a3229537929_10.jpg" alt="">
+            <img class="music-cover" src="https://imagescdn.juno.co.uk/full/CS790750-01A-BIG.jpg" alt="">
+            <img class="music-cover" src="https://shop.macmillerswebsite.com/cdn/shop/files/MMI-TDF-LP_720x.png?v=1700603917" alt="">
+          </span>
+          <span class="music-title">Music</span>
+          <span class="music-note">
+            <svg class="spotify-mini" viewBox="0 0 24 24" aria-hidden="true"><circle cx="12" cy="12" r="12" fill="currentColor"/><path d="M6.2 8.2c3.9-1.15 8.55-.86 11.87.92M6.75 11.6c3.35-.88 7.55-.62 10.45.9M7.35 14.75c2.88-.7 6.25-.45 8.72.78" fill="none" stroke="#102d1b" stroke-width="1.45" stroke-linecap="round"/></svg>
+            my taste is eclectic ↗
+          </span>
+        </a>
       </div>
 
-      <div class="hob">
-        <div class="hob-name">&#127928; Guitar</div>
-        <div class="hob-note">Jamming sessions. <a href="https://open.spotify.com/user/31qtffmjlxs3hxslilqnqx356cea" target="_blank" class="hob-link" style="display:inline">Spotify &rarr;</a> (my taste is eclectic)</div>
+      <div class="hob box-card" id="boxing-card">
+        <button class="box-trigger" type="button" aria-expanded="false" aria-label="Show weightlifting and boxing photos">
+          <span class="box-photo"><img src="assets/boxing-1.png" alt="Boxing match in a crowded gym" loading="lazy"></span>
+          <span class="box-photo"><img src="assets/boxing-2.png" alt="Boxing team together after training" loading="lazy"></span>
+          <span class="box-title">Weightlifting &amp; Boxing</span>
+        </button>
       </div>
 
-      <div class="hob">
-        <div class="hob-name">&#127912; Painting</div>
-        <div class="hob-note">Landscapes and abstract.</div>
+      <div class="hob paint-card" id="painting-card">
+        <button class="paint-trigger" type="button" aria-expanded="false" aria-label="Show painting gallery">
+          <span class="paint-photo"><img src="assets/painting-1.png" alt="Painting of a Himalayan village" loading="lazy"></span>
+          <span class="paint-photo"><img src="assets/painting-2.png" alt="Painting of an ocean sunset" loading="lazy"></span>
+          <span class="paint-photo"><img src="assets/painting-3.png" alt="Painting of a mother holding a baby" loading="lazy"></span>
+          <span class="paint-photo"><img src="assets/painting-4.png" alt="Painting of a couple embracing" loading="lazy"></span>
+          <span class="paint-title">Painting</span>
+        </button>
       </div>
 
-      <div class="hob">
-        <div class="hob-name">🧁 Baking</div>
+      <div class="hob hike-card" id="hiking-card">
+        <button class="hike-trigger" type="button" aria-expanded="false" aria-label="Show trekking and travel photos">
+          <span class="hike-photo"><img src="assets/hike-1.png" alt="Himalayan peaks and prayer flags" loading="lazy"></span>
+          <span class="hike-photo"><img src="assets/hike-2.png" alt="Mountain view from a blue terrace" loading="lazy"></span>
+          <span class="hike-photo"><img src="assets/hike-3.png" alt="Mountain village under low clouds" loading="lazy"></span>
+          <span class="hike-photo"><img src="assets/hike-4.png" alt="Friends skiing in snowy mountains" loading="lazy"></span>
+          <span class="hike-photo"><img src="assets/hike-5.png" alt="Hiking beside a sunlit waterfall" loading="lazy"></span>
+          <span class="hike-photo"><img src="assets/hike-6.png" alt="Waterfall through a forest" loading="lazy"></span>
+          <span class="hike-title">Trekking &amp; Travel</span>
+        </button>
       </div>
 
     </div>
 
-    <!-- MISC ROW -->
-<div style="padding:1.75rem 2rem;border:1px solid var(--rule);margin-bottom:5rem">
-
-      <div style="font-family:var(--mono);font-size:8px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1.25rem">Miscellaneous</div>
-
-      <div style="font-family:var(--serif);font-size:.95rem;line-height:2.5">
-
-        <strong>Yoga &amp; Meditation</strong><span style="color:#666">,&ensp;</span>
-
-        <strong>Bouldering &amp; Rock Climbing</strong><span style="color:#666">,&ensp;</span>
-
-        <strong>Pilates</strong><span style="color:#666">,&ensp;</span>
-
-        <strong>Chess</strong><span style="color:#666">,&ensp;</span>
-
-        <strong>Biking</strong><span style="color:#666">,&ensp;</span>
-
-        <strong>Sewing</strong><span style="color:#666">,&ensp;</span>
-
-        <strong>Journaling</strong><span style="color:#666">,&ensp;</span>
-
-        <strong>Learning New Languages</strong> <span style="color:#888;font-style:italic">(fun fact: I&rsquo;m fluent in Nepali, American Sign Language, and Spanish)</span>
-
+    <!-- FAVORITE READS -->
+    <section class="reads-section" aria-labelledby="reads-title">
+      <div class="reads-heading"><h3 id="reads-title">My Favorite Reads</h3></div>
+      <div class="reads-window">
+        <div class="reads-track">
+          <article class="read-book"><img class="read-cover" src="https://files.legimi.com/images/fc3bbfdb19c2c712f6ea98f8a529f5/w512_u90.jpg" alt="The Girl with the Dragon Tattoo book cover" loading="lazy"><div class="read-title">The Girl with the Dragon Tattoo</div><div class="read-author">Stieg Larsson</div></article>
+          <article class="read-book"><img class="read-cover" src="https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_360%2Cc_scale%2Cdpr_1.5/jackets/9781501314162.jpg" alt="Pedagogy of the Oppressed book cover" loading="lazy"><div class="read-title">Pedagogy of the Oppressed</div><div class="read-author">Paulo Freire</div></article>
+          <article class="read-book"><img class="read-cover" src="https://cdn.ozone.bg/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/t/h/9eb642fbe9de1e6cae0695057c49091a/the-master-and-margarita-30.jpg" alt="The Master and Margarita book cover" loading="lazy"><div class="read-title">The Master and Margarita</div><div class="read-author">Mikhail Bulgakov</div></article>
+          <article class="read-book"><img class="read-cover" src="https://i.etsystatic.com/18535884/r/il/5164b6/7752304159/il_1080xN.7752304159_5xt7.jpg" alt="Never Let Me Go book cover" loading="lazy"><div class="read-title">Never Let Me Go</div><div class="read-author">Kazuo Ishiguro</div></article>
+          <article class="read-book"><img class="read-cover" src="https://www.continente.pt/dw/image/v2/BDVS_PRD/on/demandware.static/-/Sites-col-master-catalog/default/dwb7bb6da5/images/col/786/7866684-frente.jpg?sh=2000&amp;sw=2000" alt="The Secret History book cover" loading="lazy"><div class="read-title">The Secret History</div><div class="read-author">Donna Tartt</div></article>
+          <article class="read-book"><img class="read-cover" src="https://miro.medium.com/1%2AbuYxSzqDA1gwJ_rLcIiVqw.png" alt="Giovanni's Room book cover" loading="lazy"><div class="read-title">Giovanni&rsquo;s Room</div><div class="read-author">James Baldwin</div></article>
+          <article class="read-book"><img class="read-cover" src="https://i5.walmartimages.com/seo/Freida-McFadden-Never-Lie-Paperback-9781728296166_0ed0a580-e7f5-43f9-afad-5fa09ef67e66.da6452aaee279614dc3bfe514ff7abb2.jpeg" alt="Never Lie book cover" loading="lazy"><div class="read-title">Never Lie</div><div class="read-author">Freida McFadden</div></article>
+          <article class="read-book" aria-hidden="true"><img class="read-cover" src="https://files.legimi.com/images/fc3bbfdb19c2c712f6ea98f8a529f5/w512_u90.jpg" alt="" loading="lazy"><div class="read-title">The Girl with the Dragon Tattoo</div><div class="read-author">Stieg Larsson</div></article>
+          <article class="read-book" aria-hidden="true"><img class="read-cover" src="https://res.cloudinary.com/bloomsbury-atlas/image/upload/w_360%2Cc_scale%2Cdpr_1.5/jackets/9781501314162.jpg" alt="" loading="lazy"><div class="read-title">Pedagogy of the Oppressed</div><div class="read-author">Paulo Freire</div></article>
+          <article class="read-book" aria-hidden="true"><img class="read-cover" src="https://cdn.ozone.bg/media/catalog/product/cache/1/image/9df78eab33525d08d6e5fb8d27136e95/t/h/9eb642fbe9de1e6cae0695057c49091a/the-master-and-margarita-30.jpg" alt="" loading="lazy"><div class="read-title">The Master and Margarita</div><div class="read-author">Mikhail Bulgakov</div></article>
+          <article class="read-book" aria-hidden="true"><img class="read-cover" src="https://i.etsystatic.com/18535884/r/il/5164b6/7752304159/il_1080xN.7752304159_5xt7.jpg" alt="" loading="lazy"><div class="read-title">Never Let Me Go</div><div class="read-author">Kazuo Ishiguro</div></article>
+          <article class="read-book" aria-hidden="true"><img class="read-cover" src="https://www.continente.pt/dw/image/v2/BDVS_PRD/on/demandware.static/-/Sites-col-master-catalog/default/dwb7bb6da5/images/col/786/7866684-frente.jpg?sh=2000&amp;sw=2000" alt="" loading="lazy"><div class="read-title">The Secret History</div><div class="read-author">Donna Tartt</div></article>
+          <article class="read-book" aria-hidden="true"><img class="read-cover" src="https://miro.medium.com/1%2AbuYxSzqDA1gwJ_rLcIiVqw.png" alt="" loading="lazy"><div class="read-title">Giovanni&rsquo;s Room</div><div class="read-author">James Baldwin</div></article>
+          <article class="read-book" aria-hidden="true"><img class="read-cover" src="https://i5.walmartimages.com/seo/Freida-McFadden-Never-Lie-Paperback-9781728296166_0ed0a580-e7f5-43f9-afad-5fa09ef67e66.da6452aaee279614dc3bfe514ff7abb2.jpeg" alt="" loading="lazy"><div class="read-title">Never Lie</div><div class="read-author">Freida McFadden</div></article>
+        </div>
       </div>
-
-    </div>
-    
-    <!-- TRAVEL -->
-    <div style="margin-bottom:5rem">
-      <div style="font-family:var(--mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem">Travel</div>
-      <div style="display:grid;grid-template-columns:repeat(2,1fr);gap:1px;background:var(--rule)">
-        <div class="place" style="padding:.75rem 1.25rem;border-bottom:none">&#127475;&#127477; Kathmandu, Nepal <span class="place-num" style="font-style:italic">home</span></div>
-        <div class="place" style="padding:.75rem 1.25rem;border-bottom:none">&#127466;&#127480; Barcelona &middot; Sevilla &middot; Valencia &middot; Madrid</div>
-        <div class="place" style="padding:.75rem 1.25rem;border-bottom:none">&#127466;&#127480; Ibiza &middot; Palma de Mallorca</div>
-        <div class="place" style="padding:.75rem 1.25rem;border-bottom:none">&#127470;&#127481; Venice, Italy</div>
-        <div class="place" style="padding:.75rem 1.25rem;border-bottom:none">&#127477;&#127481; Lisbon, Portugal</div>
-        <div class="place" style="padding:.75rem 1.25rem;border-bottom:none">&#127474;&#127462; Morocco</div>
-        <div class="place" style="padding:.75rem 1.25rem;border-bottom:none">&#127469;&#127472; Hong Kong</div>
-        <div class="place" style="padding:.75rem 1.25rem;border-bottom:none">&#127482;&#127480; NYC &middot; Austin &middot; Dallas &middot; Seattle</div>
-        <div class="place" style="padding:.75rem 1.25rem;border-bottom:none">&#127482;&#127480; Vegas &middot; Reno &middot; DC &middot; Pittsburgh</div>
-        <div class="place" style="padding:.75rem 1.25rem;border-bottom:none">&#127482;&#127480; Grand Canyon &middot; Niagara Falls</div>
-        <div class="place" style="padding:.75rem 1.25rem;border-bottom:none">&#127482;&#127480; SF &middot; LA &middot; Yosemite &middot; Tahoe &middot; and more</div>
-      </div>
-    </div>
-
-    <!-- READING -->
-    <div>
-      <div style="font-family:var(--mono);font-size:9px;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);margin-bottom:1.5rem">Reading &mdash; My All Time Faves &#8595;</div>
-      <div class="book-list">
-
-        <div class="book">
-          <div class="book-title">The Girl with the Dragon Tattoo</div>
-          <div class="book-auth">Stieg Larsson</div>
-        </div>
-
-        <div class="book">
-          <div class="book-title">Pedagogy of the Oppressed</div>
-          <div class="book-auth">Paulo Freire</div>
-        </div>
-
-        <div class="book">
-          <div class="book-title">The Master and Margarita</div>
-          <div class="book-auth">Mikhail Bulgakov</div>
-        </div>
-
-        <div class="book">
-          <div class="book-title">Never Let Me Go</div>
-          <div class="book-auth">Kazuo Ishiguro</div>
-        </div>
-
-        <div class="book">
-          <div class="book-title">The Secret History</div>
-          <div class="book-auth">Donna Tartt</div>
-        </div>
-
-        <div class="book">
-          <div class="book-title">Giovanni&rsquo;s Room</div>
-          <div class="book-auth">James Baldwin</div>
-          <div class="book-note">Baldwin writes shame the way it actually lives &mdash; quiet, structural, inherited. Every sentence carries weight that most writers spend whole careers trying to find.&rsquo;d like.</div>
-        </div>
-
-        <div class="book">
-          <div class="book-title">Never Lie</div>
-          <div class="book-auth">Freida McFadden</div>
-        </div>
-
-      </div>
-    </div>
+    </section>
 
   </div>
 </div>
@@ -940,6 +1056,26 @@ function showTab(tab) {
   }
   cycle();
   setInterval(cycle, 1400);
+})();
+
+// Expand motion-photo cards on tap; hover handles pointer devices.
+(function() {
+  [
+    { id: 'running-card', trigger: '.run-trigger', name: 'running' },
+    { id: 'boxing-card', trigger: '.box-trigger', name: 'weightlifting and boxing' },
+    { id: 'hiking-card', trigger: '.hike-trigger', name: 'hiking and trekking' },
+    { id: 'painting-card', trigger: '.paint-trigger', name: 'painting' },
+    { id: 'baking-card', trigger: '.bake-trigger', name: 'baking' }
+  ].forEach(function(item) {
+    const card = document.getElementById(item.id);
+    const trigger = card && card.querySelector(item.trigger);
+    if (!card || !trigger) return;
+    trigger.addEventListener('click', function() {
+      const open = card.classList.toggle('is-open');
+      trigger.setAttribute('aria-expanded', String(open));
+      trigger.setAttribute('aria-label', (open ? 'Collapse ' : 'Show ') + item.name + ' photos');
+    });
+  });
 })();
 </script>
 </body>
