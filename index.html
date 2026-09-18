@@ -2882,6 +2882,36 @@ body:not(:has(#panel-home.active)) .home-social-footer{display:none!important}
   #panel-projects .proj-grid{gap:7px!important;padding:7px!important}
 }
 </style>
+
+<style id="coursework-simple-groups">
+/* Keep the original expansion interaction; only organize the revealed classes. */
+#courses-card .courses-panel-grouped{
+  display:block;
+}
+#courses-card .course-group{
+  width:100%;
+  margin:0 0 20px;
+}
+#courses-card .course-group:last-child{
+  margin-bottom:0;
+}
+#courses-card .course-group-label{
+  width:100%;
+  margin:0 0 9px;
+  text-align:center;
+  font-family:var(--mono);
+  font-size:10px;
+  font-weight:700;
+  letter-spacing:.14em;
+  color:rgba(68,50,45,.62);
+}
+#courses-card .course-group-list{
+  display:flex;
+  flex-wrap:wrap;
+  justify-content:center;
+  gap:10px 12px;
+}
+</style>
 </head>
 <body>
 <div id="intro-loader">
@@ -3011,25 +3041,31 @@ body:not(:has(#panel-home.active)) .home-social-footer{display:none!important}
             <span class="course-chip-mini cm-3">MATH</span>
             <span class="courses-label">Coursework<span class="courses-arrow">&#8599;</span></span>
           </button>
-          <div class="courses-panel">
-          <span class="edu-course" style="--i:0">EECS 16A &mdash; Signals, Dynamical Systems, and Information Processing</span>
-          <span class="edu-course" style="--i:1">EECS 16B &mdash; Circuits &amp; Devices</span>
-          <span class="edu-course" style="--i:2">EE 105 &mdash; Microelectronic Devices and Circuits</span>
-          <span class="edu-course" style="--i:3">EE 143 &mdash; Microfabrication Technology</span>
-          <span class="edu-course" style="--i:4">EECS 127 &mdash; Optimization Models in Engineering</span>
-          <span class="edu-course" style="--i:5">CS 189 &mdash; Intro Machine Learning</span>
-          <span class="edu-course" style="--i:6">CS 161 &mdash; Computer Security</span>
-          <span class="edu-course" style="--i:7">CS 168 &mdash; Internet Architecture</span>
-          <span class="edu-course" style="--i:8">CS 61B &mdash; Data Structures &amp; Algorithms</span>
-          <span class="edu-course" style="--i:9">CS 61C &mdash; Computer Architecture (Machine Structures)</span>
-          <span class="edu-course" style="--i:10">CS 186 &mdash; Database Systems</span>
-          <span class="edu-course" style="--i:11">CS 70 &mdash; Discrete Mathematics and Probability Theory</span>
-          <span class="edu-course" style="--i:12">CS 170 &mdash; Algorithms and Intractable Problems</span>
-          <span class="edu-course" style="--i:13">CS 194 &mdash; Agentic AI</span>
-          <span class="edu-course" style="--i:14">CS 195 &mdash; Computer Ethics</span>
-          <span class="edu-course" style="--i:15">Physics 7A &mdash; Physics for Scientists &amp; Engineers</span>
-          <span class="edu-course" style="--i:16">Physics 7B &mdash; Physics for Scientists &amp; Engineers</span>
-          <span class="edu-course" style="--i:17">Math 53 &mdash; Multivariable Calculus (Calc III)</span>
+          <div class="courses-panel courses-panel-grouped">
+            <div class="course-group">
+          <div class="course-group-label">EE / EECS</div>
+          <div class="course-group-list">
+            <span class="edu-course" style="--i:0">EECS 16A &mdash; Signals, Dynamical Systems, and Information Processing</span><span class="edu-course" style="--i:1">EECS 16B &mdash; Circuits &amp; Devices</span><span class="edu-course" style="--i:2">EE 105 &mdash; Microelectronic Devices and Circuits</span><span class="edu-course" style="--i:3">EE 143 &mdash; Microfabrication Technology</span><span class="edu-course" style="--i:4">EECS 127 &mdash; Optimization Models in Engineering</span>
+          </div>
+        </div><div class="course-group">
+          <div class="course-group-label">CS</div>
+          <div class="course-group-list">
+            <span class="edu-course" style="--i:5">CS 189 &mdash; Intro Machine Learning</span><span class="edu-course" style="--i:6">CS 161 &mdash; Computer Security</span><span class="edu-course" style="--i:7">CS 168 &mdash; Internet Architecture</span><span class="edu-course" style="--i:8">CS 61B &mdash; Data Structures &amp; Algorithms</span><span class="edu-course" style="--i:9">CS 61C &mdash; Computer Architecture (Machine Structures)</span><span class="edu-course" style="--i:10">CS 186 &mdash; Database Systems</span><span class="edu-course" style="--i:11">CS 70 &mdash; Discrete Mathematics and Probability Theory</span><span class="edu-course" style="--i:12">CS 170 &mdash; Algorithms and Intractable Problems</span>
+          </div>
+        </div>
+          
+<div class="course-group course-group-cool">
+  <div class="course-group-label">COOL STUFF</div>
+  <div class="course-group-list">
+    <span class="edu-course">UGBA 105 &mdash; Leading People</span>
+    <span class="edu-course">UGBA 135 &mdash; Personal Finance</span>
+    <span class="edu-course">PSYCH C61 &mdash; Brain, Mind, and Behavior</span>
+    <span class="edu-course">PSYCH C162 &mdash; Human Happiness</span>
+    <span class="edu-course">PSYCH 198 &mdash; Introduction to Psychedelic Science</span>
+    <span class="edu-course">CS 194 &mdash; Agentic AI</span>
+    <span class="edu-course">CS 195 &mdash; Computer Ethics</span>
+  </div>
+</div>
           </div>
         </div>
       </div>
